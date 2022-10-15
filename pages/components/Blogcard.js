@@ -13,5 +13,7 @@ export default function BlogPost({title, coverPhoto,slug}){
                 <h2>{title}</h2>
             </div>
         </div>
-    )
+    );
 }
+
+
