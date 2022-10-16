@@ -1,8 +1,23 @@
 (() => {
 var exports = {};
 exports.id = 405;
-exports.ids = [405,149];
+exports.ids = [405];
 exports.modules = {
+
+/***/ 8962:
+/***/ ((module) => {
+
+// Exports
+module.exports = {
+	"card": "BlogCard_card__tj_Wo",
+	"imgContainer": "BlogCard_imgContainer__RCZyL",
+	"details": "BlogCard_details__NazJw",
+	"text": "BlogCard_text__oM0Mu",
+	"author": "BlogCard_author__rK4wK"
+};
+
+
+/***/ }),
 
 /***/ 1288:
 /***/ ((module) => {
@@ -16,7 +31,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 304:
+/***/ 7601:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -39,8 +54,40 @@ var Home_module = __webpack_require__(1288);
 var Home_module_default = /*#__PURE__*/__webpack_require__.n(Home_module);
 // EXTERNAL MODULE: external "graphql-request"
 var external_graphql_request_ = __webpack_require__(5805);
-// EXTERNAL MODULE: ./pages/components/Blogcard.js
-var Blogcard = __webpack_require__(8885);
+// EXTERNAL MODULE: ./node_modules/next/link.js
+var next_link = __webpack_require__(1664);
+var link_default = /*#__PURE__*/__webpack_require__.n(next_link);
+// EXTERNAL MODULE: ./styles/BlogCard.module.css
+var BlogCard_module = __webpack_require__(8962);
+var BlogCard_module_default = /*#__PURE__*/__webpack_require__.n(BlogCard_module);
+;// CONCATENATED MODULE: ./components/Blogcard.js
+
+
+
+function BlogPost({ title , coverPhoto , slug  }) {
+    return /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+        className: (BlogCard_module_default()).card,
+        children: [
+            /*#__PURE__*/ jsx_runtime_.jsx((link_default()), {
+                href: "/posts/" + slug,
+                children: /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                    className: (BlogCard_module_default()).imgContainer,
+                    children: /*#__PURE__*/ jsx_runtime_.jsx("img", {
+                        src: coverPhoto.url,
+                        alt: ""
+                    })
+                })
+            }),
+            /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                className: (BlogCard_module_default()).text,
+                children: /*#__PURE__*/ jsx_runtime_.jsx("h2", {
+                    children: title
+                })
+            })
+        ]
+    });
+}
+
 ;// CONCATENATED MODULE: ./pages/index.js
 
 
@@ -68,8 +115,7 @@ async function getStaticProps() {
         props: {
             posts
         },
-        revalidate: 10,
-        np
+        revalidate: 10
     };
 }
 function Home({ posts  }) {
@@ -93,7 +139,7 @@ function Home({ posts  }) {
             }),
             /*#__PURE__*/ jsx_runtime_.jsx("main", {
                 className: (Home_module_default()).main,
-                children: posts.map((post)=>/*#__PURE__*/ jsx_runtime_.jsx(Blogcard["default"], {
+                children: posts.map((post)=>/*#__PURE__*/ jsx_runtime_.jsx(BlogPost, {
                         title: post.title,
                         coverPhoto: post.coverPhoto,
                         slug: post.slug
@@ -329,7 +375,7 @@ module.exports = require("react/jsx-runtime");
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [676,664,885], () => (__webpack_exec__(304)));
+var __webpack_exports__ = __webpack_require__.X(0, [676,664], () => (__webpack_exec__(7601)));
 module.exports = __webpack_exports__;
 
 })();

@@ -25,7 +25,7 @@ export async function getStaticProps(){
     props: {
       posts,
     },
-    revalidate: 10,np
+    revalidate: 10,
   };
 }
 export default function Home({posts}) {
